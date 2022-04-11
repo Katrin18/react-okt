@@ -1,11 +1,20 @@
+import { useState } from 'react';
 
+import styles from './App.module.css';
+import {UserInfo, Users } from './components';
+import {Posts} from "./components/Posts/Posts";
 
-function App() {
-  return (
-    <div className="App">
+export const App = () => {
+    const [user, setUser] = useState(null);
+    const [userIdForPosts, setUserIdForPosts] = useState(null);
 
-    </div>
-  );
+    return (
+        <div>
+            <div className={styles.usersAndInfo}>
+                <Users setUser={setUser} setUserIdForPosts={setUserIdForPosts}/>
+                {user && <UserInfo user={user} setUserIdForPosts={setUserIdForPosts}/>}
+            </div>
+            {userIdForPosts && <Posts userId={userIdForPosts}/>}
+        </div>
+    );
 }
-
-export default App;
