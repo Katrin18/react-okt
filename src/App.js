@@ -1,11 +1,18 @@
+import {useState} from "react";
 
+import {CarForm, Cars} from "./components";
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
+    const [newCar, setNewCar] = useState(null);
+    const [carForUpdate,setCarForUpdate] = useState(null);
 
-    </div>
-  );
-}
+    return (
+        <div>
+            <CarForm setNewCar={setNewCar} carForUpdate={carForUpdate}/>
+            <hr/>
+            <Cars newCar={newCar} setCarForUpdate={setCarForUpdate}/>
+        </div>
+    );
+};
 
 export default App;
